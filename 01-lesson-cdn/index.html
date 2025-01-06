@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>CDN - axios</title>
+</head>
+
+<body>
+  <button onclick="registerPost()">Cadastrar</button>
+  <button onclick="updatePost()">Atualizar post</button>
+  <button onclick="deletePost()">Deletar</button>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const url = "https://jsonplaceholder.typicode.com/posts"
+    async function getPosts() {
+      // https://jsonplaceholder.typicode.com/posts
+      console.log("pegarPosts")
+      const response = await axios.get(url);
+      console.log('resposta formatada', response.data)
+    }
+    getPosts();
+
+    async function registerPost() {
+      const response = await axios.post(
+        url,
+        {
+          body: "Post teste",
+          id: 101,
+          title: "texto teste",
+          userIde: 101
+        });
+      console.log('resposta', response.data)
+    }
+
+    async function updatePost() {
+      const response = await axios.put(`${url}/1`, {
+        body: "Post atulizado",
+        id: 101,
+        title: "texto atualizado",
+        userId: 1,
+      })
+      console.log("resposta put", response)
+    }
+
+    async function deletePost() {
+      const response = await axios.delete(`${url}/1`)
+      console.log('Resposta', response)
+    }
+  </script>
+</body>
+
+</html>
