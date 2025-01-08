@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>npm - json server CRUD</title>
+  <style>
+    li {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    .btn-delete {
+      display: flex;
+      height: 15px;
+      align-items: center;
+      margin-left: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Filmes</h1>
+  <form onsubmit="registerMove(event)">
+    <label for="new-title">Título</label>
+    <input type="text" name="title" id="new-title">
+    <button type="submit" class="btn-register">Cadastrar</button>
+
+    <label for="update-title">Clique no filme para alterar o título</label>
+    <input type="text" name="title" id="update-title">
+    <button type="button" onclick="updateMove()" class="btn-update" disabled="disabled">Alterar</button>
+  </form>
+  <ul id="move-list"></ul>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./scripts/index.js"></script>
+</body>
+
+</html>
